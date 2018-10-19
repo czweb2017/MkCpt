@@ -1,0 +1,24 @@
+.flip_board {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    padding-bottom:100%;
+    color: #ddd;
+    border: 1px solid #aaa;
+    background-color: #999;
+    transition: all 1s;
+}
+.toggle_button {
+    position: absolute;
+    top: 0;
+    right:0;
+    padding: 5px;
+    background-color: #000;
+}
+.hidden_flip_board {
+    transform: translate(-180px, 0);
+}
+.showed_flip_board {
+    transform: translate(0px,0);
+}

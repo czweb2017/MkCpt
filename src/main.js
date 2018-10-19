@@ -14,8 +14,6 @@ class ReactAPP extends React.Component {
         <div>
             <div>{val}</div>
             <FlipBoard />
-            <FlipBoard />
-            <FlipBoard />
         </div>
         )
     }

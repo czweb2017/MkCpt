@@ -1,6 +1,0 @@
-.hidden_flip_board {
-    transform: translate(0,0);
-}
-.showed_flip_board {
-    transform: translate(120px,0);
-}

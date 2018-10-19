@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './index.css'
+import './index.less'
 
 class FlipBoard extends Component {
 
@@ -11,10 +11,6 @@ class FlipBoard extends Component {
         }
         this.toggleFlip = this.toggleFlip.bind(this)
         this.exchange = this.exchange.bind(this)
-    }
-
-    hello () {
-        console.log('hello')
     }
 
     exchange(flag) {
@@ -35,29 +31,24 @@ class FlipBoard extends Component {
         this.exchange(this.state.hidden)
     }
 
-    componentDidMount() {
-        // setTimeout(() => {
-        //     this.setState({className:'showed_flip_board'})
-        //     this.hello()
-        // }, 3000)
-    }
-
     render() {
         const {option} = this.props
+        // const {style} = option
+        const {className} = this.state
 
-        const style = {
-            width: '200px',
-            height: '200px',
-            color: '#ddd',
-            backgroundColor: '#888',
-            position:'relative',
-            transition: 'all 1s'
+        let currentStyle = {}
+
+        if(option) {
+            if(option.style) {
+                currentStyle = option.style
+            }
         }
 
-        return (<div style={style} className={this.state.className}>
+        return (
+        <div className={'flip_board '+className} style={currentStyle}>
                 FlipBoard
-                <button onClick={this.toggleFlip}>flip</button>
-            </div>)
+                <div onClick={this.toggleFlip} className="toggle_button"></div>
+        </div>)
     }
 }
 

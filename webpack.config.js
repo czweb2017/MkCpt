@@ -10,20 +10,22 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'bundle.js'
+        filename: '[name]-[hash].js'
     },
     module: {
         rules: [
+            // {
+            //     test: /\.css$/g,
+            //     use: ['style-loader','css-loader']
+            // },
             {
-                test: /\.css$/g,
-                use: ['style-loader','css-loader']
-            },{
                 test: /\.(js|jsx)$/g,
                 use: {
                     loader: 'babel-loader',
                 },
                 exclude: '/node_modules/'
-            },{
+            },
+            {
                 test: /\.less$/,
                 use: extractTextPlugin.extract({
                     use: [
@@ -44,9 +46,7 @@ module.exports = {
             hash: true,
             template: './src/index.html'
         }),
-        new extractTextPlugin({
-
-        })
+        new extractTextPlugin('css/index.css')
     ],
     devServer: {
         contentBase: path.resolve(__dirname, './dist'),
