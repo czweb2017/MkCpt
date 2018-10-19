@@ -54,12 +54,10 @@ class FlipBoard extends Component {
             transition: 'all 1s'
         }
 
-        return (
-            <div style={style} className={this.state.className}>
+        return (<div style={style} className={this.state.className}>
                 FlipBoard
                 <button onClick={this.toggleFlip}>flip</button>
-            </div>
-        );
+            </div>)
     }
 }
 

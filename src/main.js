@@ -10,12 +10,14 @@ const {FlipBoard} = components
 class ReactAPP extends React.Component {
     render() {
         const val = a()+b(3)
-        return (<div>
+        return (
+        <div>
             <div>{val}</div>
             <FlipBoard />
             <FlipBoard />
             <FlipBoard />
-        </div>)
+        </div>
+        )
     }
 }
 

@@ -1,5 +1,7 @@
 const path = require('path');
 const uglify = require('uglifyjs-webpack-plugin');
+const htmlPlugin = require('html-webpack-plugin');
+const extractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -21,11 +23,30 @@ module.exports = {
                     loader: 'babel-loader',
                 },
                 exclude: '/node_modules/'
+            },{
+                test: /\.less$/,
+                use: extractTextPlugin.extract({
+                    use: [
+                        {loader: 'css-loader'},
+                        {loader: 'less-loader'}
+                    ],
+                    fallback: 'style-loader'
+                })
             }
         ]
     },
     plugins: [
-        new uglify()
+        new uglify(),
+        new htmlPlugin({
+            minify: {
+                removeAttributeQuotes: true
+            },
+            hash: true,
+            template: './src/index.html'
+        }),
+        new extractTextPlugin({
+
+        })
     ],
     devServer: {
         contentBase: path.resolve(__dirname, './dist'),
