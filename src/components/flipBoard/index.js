@@ -33,7 +33,6 @@ class FlipBoard extends Component {
 
     render() {
         const {option} = this.props
-        // const {style} = option
         const {className} = this.state
 
         let currentStyle = {}
